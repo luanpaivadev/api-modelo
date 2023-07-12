@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active:
+      - dev
+
+app:
+  info:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+springdoc:
+  packages-to-scan:
+    - com.luanpaiva.examplejunittest.adapter.input.api
+  paths-to-match:
+    - /v1/**
+
+token:
+  secret: ${TOKEN_SECRET:9cea5824-db1a-4a29-8d43-8260a6586e2d}

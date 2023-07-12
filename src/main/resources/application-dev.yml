@@ -1,0 +1,12 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dbtest?serverTimezone=UTC
+    username: postgres
+    password: 0190747e-0f0f-41b9-ada0-d2632b474a1f
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
