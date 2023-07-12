@@ -1,5 +1,6 @@
 package com.luanpaiva.examplejunittest.core.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,8 +11,8 @@ public class Cliente {
     private String cpf;
     private String email;
     private String telefone;
-    private List<Endereco> enderecos;
-    private List<Cartao> cartoes;
+    private List<Endereco> enderecos = new ArrayList<>();
+    private List<Cartao> cartoes = new ArrayList<>();
 
     public Long getId() {
         return id;

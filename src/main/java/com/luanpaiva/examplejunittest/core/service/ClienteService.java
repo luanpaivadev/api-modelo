@@ -8,6 +8,7 @@ import com.luanpaiva.examplejunittest.core.port.service.ClienteServicePort;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Objects;
 
 import static java.text.MessageFormat.format;
 
@@ -24,7 +25,11 @@ public class ClienteService implements ClienteServicePort {
 
     @Override
     public Cliente save(Cliente cliente) {
-        cliente.getCartoes().forEach(this::ofuscarNumeroCartao);
+
+        if (!cliente.getCartoes().isEmpty()) {
+            cliente.getCartoes().forEach(this::ofuscarNumeroCartao);
+        }
+
         cliente = clienteRepositoryPort.save(cliente);
 
         log.info(CLIENTE_SALVO_COM_SUCESSO);
