@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copie o arquivo JAR da sua API REST (certifique-se de que o arquivo JAR foi gerado)
-COPY target/*.jar app.jar
+COPY target/api-modelo.jar app.jar
 
 # Expõe a porta em que sua API REST está sendo executada
 EXPOSE 8080
