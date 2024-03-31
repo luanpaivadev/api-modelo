@@ -95,7 +95,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                    <finalName>api-modelo.jar</finalName>
+                    <finalName>api-modelo</finalName>
                 </configuration>
             </plugin>
             <plugin>
