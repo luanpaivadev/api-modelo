@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-modelo-configmap
+data:
+  SERVER_PORT: "8080"
+  PROFILE_ACTIVE: dev
+  DB_HOST: postgres-svc
+  POSTGRES_DB: api-modelo-db
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: 0190747e-0f0f-41b9-ada0-d2632b474a1f
+  TZ: "America/Sao_Paulo"

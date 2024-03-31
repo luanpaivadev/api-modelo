@@ -1,4 +1,4 @@
-package com.luanpaiva.examplejunittest.adapter.input.api.exceptionhandler;
+package com.luanpaiva.examplejunittest.adapter.output.exceptionhandler;
 
 import com.luanpaiva.examplejunittest.adapter.model.dto.ErrorResponse;
 import com.luanpaiva.examplejunittest.core.exceptions.BearerTokenException;
@@ -23,6 +23,14 @@ public class GlobalExceptionHandler {
 
     private static final String OS_ATRIBUTOS_NAO_DEVEM_SER_NULOS = "Os atributos {0}, não devem ser nulos.";
     private static final String O_ATRIBUTO_NAO_DEVE_SER_NULO = "O atributo {0}, não deve ser nulo.";
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> exceptionHandler(Exception exception) {
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), exception.getMessage()));
+    }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ClienteNaoEncontradoException.class)

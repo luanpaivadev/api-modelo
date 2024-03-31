@@ -1,16 +1,16 @@
 package com.luanpaiva.examplejunittest.core.service;
 
+import static java.text.MessageFormat.format;
+
+import java.util.List;
+
 import com.luanpaiva.examplejunittest.core.exceptions.ClienteNaoEncontradoException;
 import com.luanpaiva.examplejunittest.core.model.Cartao;
 import com.luanpaiva.examplejunittest.core.model.Cliente;
 import com.luanpaiva.examplejunittest.core.port.repository.ClienteRepositoryPort;
 import com.luanpaiva.examplejunittest.core.port.service.ClienteServicePort;
+
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.List;
-import java.util.Objects;
-
-import static java.text.MessageFormat.format;
 
 @Slf4j
 public class ClienteService implements ClienteServicePort {
@@ -44,13 +44,15 @@ public class ClienteService implements ClienteServicePort {
     @Override
     public Cliente findById(Long id) {
         return clienteRepositoryPort.findById(id)
-                .orElseThrow(() -> new ClienteNaoEncontradoException(format("Cliente com id {0}, não encontrado.", id)));
+                .orElseThrow(
+                        () -> new ClienteNaoEncontradoException(format("Cliente com id {0}, não encontrado.", id)));
     }
 
     @Override
     public Cliente findByEmail(String email) {
         return clienteRepositoryPort.findByEmail(email)
-                .orElseThrow(() -> new ClienteNaoEncontradoException(format("Cliente com email {0}, não encontrado.", email)));
+                .orElseThrow(() -> new ClienteNaoEncontradoException(
+                        format("Cliente com email {0}, não encontrado.", email)));
     }
 
     private void ofuscarNumeroCartao(Cartao cartao) {

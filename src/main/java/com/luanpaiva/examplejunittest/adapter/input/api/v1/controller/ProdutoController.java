@@ -9,14 +9,8 @@ import com.luanpaiva.examplejunittest.core.port.service.ProdutoServicePort;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import static com.luanpaiva.examplejunittest.core.constant.Roles.ROLE_ADMIN;
 import static com.luanpaiva.examplejunittest.core.constant.Roles.ROLE_USER;
 
 @RestController
@@ -29,7 +23,7 @@ public class ProdutoController {
     private final ProdutoDisassembler produtoDisassembler;
 
     @PostMapping
-    @Secured(ROLE_ADMIN)
+    @Secured(ROLE_USER)
     public ResponseEntity<ProdutoDto> save(@RequestBody ProdutoInput produtoInput) {
         Produto produto = produtoDisassembler.toDomainObject(produtoInput);
         produto = produtoServicePort.save(produto);

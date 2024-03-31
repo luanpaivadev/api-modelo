@@ -1,12 +1,13 @@
+server:
+  port: ${SERVER_PORT}
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/dbtest?serverTimezone=UTC
-    username: postgres
-    password: 0190747e-0f0f-41b9-ada0-d2632b474a1f
+    url: jdbc:postgresql://${DB_HOST}:5432/${POSTGRES_DB}?serverTimezone=UTC
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update
-    generate-ddl: true
-    show-sql: true
+
+flyway:
+  enabled: true
