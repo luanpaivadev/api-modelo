@@ -10,6 +10,8 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6.3
         with:
           image: luanpaivadev/api-modelo
+          tag: latest
           registry: docker.io
+          dockerfile: Dockerfile
           username: luanpaivadev
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
