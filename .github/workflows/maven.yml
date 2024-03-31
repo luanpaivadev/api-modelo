@@ -41,4 +41,9 @@ jobs:
         cache: maven
     - name: Build project
       run: mvn clean package -DskipTests
+
+  docker:
+    needs: build
+    uses: ./.github/workflows/Docker.yml
+    secrets: inherit
     
